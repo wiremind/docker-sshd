@@ -40,3 +40,7 @@ or
 ```
 docker run -d -p 2222:22 -v $(pwd)/id_rsa.pub:/etc/authorized_keys/www -e SSH_USERS="www:48:48" docker.io/panubo/sshd
 ```
+
+## Kubernetes support
+
+When using Kubernetes, you create a secret with a "authorized_keys" entry, then you need to mount it in your Pod under /authorized_keys.
