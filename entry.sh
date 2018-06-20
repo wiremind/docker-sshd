@@ -6,6 +6,11 @@ set -e
 
 DAEMON=sshd
 
+# copy root authorized public key to correct location
+if [ -e /authorized_keys ]; then
+  cp /authorized_keys/..data/authorized_keys /root/.ssh/authorized_keys
+fi
+
 # Copy default config from cache
 if [ ! "$(ls -A /etc/ssh)" ]; then
    cp -a /etc/ssh.cache/* /etc/ssh/
